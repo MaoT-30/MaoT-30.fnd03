@@ -1,0 +1,260 @@
+/* 後に書いたほうが優先 */
+/* #home1{
+    align-items: baseline;
+}
+
+#difficulty2{
+}
+
+#battle3{
+} */
+
+/* デザイン */
+body {
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+span{
+    margin: 5px;
+    width: 100px;
+    height: 40px;
+    background-color: aqua;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    cursor: pointer;
+}
+button:hover{
+    opacity:0.6;
+    transform: scale(1.05,1.05);
+    transition-duration: 0.5s;
+}
+
+.backdesign {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 900px;
+    height: 900px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 13px 0px;
+}
+
+/* 1 */
+#cpu1 {
+    background-color: rgb(82, 52, 52);
+}
+
+#twin1 {
+    background-color: rgb(74, 52, 82);
+}
+
+.button1 {
+    width: 175px;
+    height: 100px;
+    color: white;
+    font-size: 125%;
+    font-weight: bold;
+    border: 0px;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+/* 2 */
+.difbutton2 {
+    width: 125px;
+    height: 125px;
+    font-weight: bold;
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(82, 52, 52);
+    border-radius: 15px;
+    font-size: 150%;
+    margin: 20px;
+}
+
+#return2 {
+    width: 100px;
+    height: 50px;
+    font-weight: bold;
+    background-color: azure;
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(183, 201, 201);
+    border-radius: 15px;
+    margin: 20px;
+}
+
+/* 3 */
+.boxparent3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxchild3 {
+    width: 450px;
+    height: 800px;
+    background-color: beige;
+    border-radius: 15px;
+    margin: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boxmagorow3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.boxmagobottom3 {
+    margin: 50px 0px;
+    gap: 20px;
+}
+
+#stop3 {
+    width: 60px;
+    height: 40px;
+    font-weight: bold;
+    background-color: azure;
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(183, 201, 201);
+    border-radius: 15px;
+}
+
+#inputValue3 {
+    width: 250px;
+    height: 50px;
+    background-color: white;
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(211, 199, 168);
+    border-radius: 15px;
+    margin: 50px 0px;
+    font-size: 200%;
+}
+
+.key3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.numButtonDes3 {
+    text-align: center;
+    background-color: blanchedalmond;
+    align-items: center;
+    margin: 5px;
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    border-color: brown;
+}
+
+.num3 {
+    font-size: 200%;
+    font-weight: bold;
+    /* color:brown; */
+}
+
+#deleteButton3 {
+    background-color: rgb(205, 206, 255);
+    font-size: 80%;
+    font-weight: bold;
+    /* color:blue; */
+}
+
+#enter3 {
+    background-color: rgb(255, 205, 205);
+    font-size: 100%;
+    font-weight: bold;
+    /* color:white; */
+}
+.log3 {
+    list-style: none;
+    width: 350px;
+    height: 50px;
+    background-color: white;
+    border: 2px rgb(211, 199, 168);
+    border-style: solid;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 150%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hit3{
+    background-color:rgb(244, 118, 109);
+    border-style: solid;
+    border:5px;
+    border-color: rgb(215, 96, 88);
+}
+.blow3{
+    background-color:rgb(109, 172, 244);
+    border-style: solid;
+    border:5px;
+    border-color: rgb(215, 96, 88);
+}
+
+/* 4.2人対戦モード */
+.p1display4{
+    background-color: rgb(245, 220, 224);
+}
+
+.p2display4{
+    background-color: rgb(220, 234, 245);
+}
+
+#next4{
+    width: 150px;
+    height: 50px;
+    background-color: rgb(152, 228, 175);
+    /* border: 2px;
+    border-style: solid;
+    border-color: rgb(211, 199, 168); */
+    border-radius: 15px;
+    /* margin: 50px 0px; */
+    font-size: 100%;
+}
+
+/* 画面の表示非表示 */
+.displayon {
+    display: block;
+}
+
+.displayoff {
+    display: none;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.invisible {
+    visibility: hidden;
+}
