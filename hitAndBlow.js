@@ -375,23 +375,23 @@ next4.addEventListener('click',
         changeHtml(numlog3, "");
         //p1p2画面反転
         displayChangePlayer(boxchild3);
-        //相手のターンボタン非表示
-        displayChangeBlank(next4);
         //履歴、プレイヤー名変更
         if (turn) {
+             //リミットのところにプレイヤー名入れる
+            changeHtml(limittime3, "Player2");
             p2log.forEach((log) => {
                 numlog3.prepend(log);
             })
-            //リミットのところにプレイヤー名入れる
-            changeHtml(limittime3, `Player2`);
         } else {
+            //リミットのところにプレイヤー名入れる
+            changeHtml(limittime3, "Player1");
             p1log.forEach((log) => {
                 numlog3.prepend(log);
             })
-            //リミットのところにプレイヤー名入れる
-            changeHtml(limittime3, `Player1`);
         }
         //ターン入れ替え
         turn = !turn;
+        //相手のターンボタン非表示
+        displayChangeBlank(next4);
     }
 );
