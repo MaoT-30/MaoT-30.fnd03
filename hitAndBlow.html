@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <script type="text/javascript" src="hitAndBlow.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- 1.ホーム画面 -->
+  <div id="home1" class="backdesign displayon">
+    <h1>HIT & BLOW</h1>
+    <p>数字推理ゲーム</p>
+    <div>
+      <h3>ルール説明</h3>
+      <p>
+        隠された<strong>「重複のない数字」</strong>を推理して当てるゲームです。<br>
+        数字を入力して「決定」を押すと、正解との一致具合がヒントとして表示されます。
+      </p>
+      <ul>
+        <li><strong>Hit（ヒット）:</strong> 数字も桁（場所）も合っている数</li>
+        <li><strong>Blow（ブロー）:</strong> 数字は含まれているが、桁（場所）が違う数</li>
+      </ul>
+      <p>
+        例：正解が <strong>[3, 5, 8]</strong> のとき、<strong>[3, 8, 1]</strong> と予想すると、<br>
+        「3」は場所も合っているので <strong>1 Hit</strong>、<br>
+        「8」は数字はあるが場所が違うので <strong>1 Blow</strong> となります。<br>
+        すべての桁を <strong>Hit</strong> にして完全クリアを目指そう！
+      </p>
+    </div>
+    <button id="cpu1" class="button1">CPU対戦</button>
+    <button id="twin1" class="button1">2人対戦</button>
+  </div>
+
+  <!-- 2.難易度選択画面 -->
+  <div id="difficulty2" class="backdesign displayoff">
+    <h2>桁数を選択</h2>
+    <div>
+      <button class="difbutton2" value="3">3桁</button><button class="difbutton2" value="4">4桁</button><button
+        class="difbutton2" value="5">5桁</button>
+    </div>
+    <button id="return2">戻る</button>
+  </div>
+
+  <!-- 3.対戦画面 4.二人対戦画面-->
+  <div id="battle3" class="backdesign displayoff">
+    <div class="boxparent3">
+      <!-- 左：操作 -->
+      <div class="boxchild3">
+        <!-- うえ -->
+        <div class="boxmagorow3">
+          <p id="mode3"></p>
+          <h4 id="limittime3">残り8回</h4><button id="stop3">やめる</button>
+        </div>
+        <!-- 入力桁数 -->
+        <p id="secletinfo4"></p>
+        <!-- 入力された数字 -->
+        <div id="inputValue3"></div>
+        <!-- 二人対戦用 ターン変更ボタン -->
+        <button id="next4" class="invisible">相手のターン</button>
+        <!--  キーボード -->
+        <div class="boxmagobottom3">
+          <div class="key3"><button class="num3 numButtonDes3" value=1>1</button><button class="num3 numButtonDes3"
+              value=2>2</button><button class="num3 numButtonDes3" value=3>3</button>
+          </div>
+          <div class="key3"><button class="num3 numButtonDes3" value=4>4</button><button class="num3 numButtonDes3"
+              value=5>5</button><button class="num3 numButtonDes3" value=6>6</button>
+          </div>
+          <div class="key3"><button class="num3 numButtonDes3" value=7>7</button><button class="num3 numButtonDes3"
+              value=8>8</button><button class="num3 numButtonDes3" value=9>9</button>
+          </div>
+          <div class="key3">
+            <button class="numButtonDes3" id="deleteButton3">1文字消す</button><button class="num3 numButtonDes3"
+              value=0>0</button><button class="numButtonDes3" id="enter3">決定</button>
+          </div>
+        </div>
+      </div>
+      <!-- 右：履歴-->
+      <div class="boxchild3">
+        <h3>履歴</h3>
+        <ul id="numlog3">
+        </ul>
+      </div>
+    </div>
+    <p>Hit（ヒット）: 数字も桁（場所）も合っている数</p>
+    <p>Blow（ブロー）: 数字は含まれているが、桁（場所）が違う数</p>
+  </div>
+</body>
