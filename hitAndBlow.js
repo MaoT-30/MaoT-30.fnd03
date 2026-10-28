@@ -95,7 +95,7 @@ twin1.addEventListener('click',
     () => {
         displayChangeDo(home1, battle3)
         digits = 3;
-        console.log(digits);
+        console.log("digits:"+digits);
         //リミットのところにプレイヤー名入れる
         changeHtml(limittime3, `Player1`);
         //入力数字の初期化
@@ -176,13 +176,13 @@ num3.forEach(num => {
     num.addEventListener('click', (event) => {
         //勝ち負け出てたら打ち込めない
         if ((numlog3.innerHTML).indexOf("<h2>") === -1) {
-            console.log("katimake ok");
+            // console.log("katimake ok");
             // 相手のターンボタン出てたら打ち込めない
             if (next4.classList.contains("invisible")) {
-                console.log("button ok");
+                // console.log("button ok");
                 //入力桁数が最大桁数より小さければ打ち込める
                 if (inputValueJs.length < digits) {
-                    console.log("ketasuu ok");
+                    // console.log("ketasuu ok");
                     // 入力された値を取得
                     let input = Number(event.currentTarget.value);
                     //重複がなければ配列に入れる
@@ -197,7 +197,6 @@ num3.forEach(num => {
         }
     })
 });
-
 //1文字消すボタン押す＝＞1文字消す
 deleteButton3.addEventListener('click',
     function () {
@@ -212,7 +211,7 @@ deleteButton3.addEventListener('click',
 enter3.addEventListener("click",
     function () {
         if (inputValueJs.length === digits && mode3.innerText === "CPU対戦") {
-
+            console.log("cpu");
             let hit = 0;
             let blow = 0;
             //hitblow判定
@@ -260,17 +259,12 @@ enter3.addEventListener("click",
                     numlog3.prepend(li);
                 }
             }
-        }
-    }
-);
-
-//===================
-//4.二人対戦画面
-//===================
-//決定ボタン押す＝＞player1数字決定、player2へ画面遷移
-enter3.addEventListener("click",
-    function () {
-        if (inputValueJs.length === digits && limittime3.innerText === "Player1" && p1ans.length !== digits) {
+        } else if (inputValueJs.length === digits && limittime3.innerText === "Player1" && p1ans.length !== digits) {
+            //===================
+            //4.二人対戦画面
+            //===================
+            //決定ボタン押す＝＞player1数字決定、player2へ画面遷移
+            console.log("p1ansin");
             //p1Answerに回答入れる
             for (let i = 0; i < digits; i++) {
                 p1ans.push(Number(inputValueJs.shift()));
@@ -282,14 +276,9 @@ enter3.addEventListener("click",
             changeHtml(limittime3, `Player2`);
             //p1p2反転
             displayChangePlayer(boxchild3);
-        }
-    }
-);
-
-//決定ボタン押す＝＞player2数字決定、p1からゲームスタート
-enter3.addEventListener("click",
-    function () {
-        if (inputValueJs.length === digits && limittime3.innerText === "Player2" && p2ans.length !== digits) {
+        } else if (inputValueJs.length === digits && limittime3.innerText === "Player2" && p2ans.length !== digits) {
+            //決定ボタン押す＝＞player2数字決定、p1からゲームスタート
+            console.log("p2ansin");
             //p2Answerに回答入れる
             for (let i = 0; i < digits; i++) {
                 p2ans.push(Number(inputValueJs.shift()));
@@ -303,19 +292,15 @@ enter3.addEventListener("click",
             displayChangePlayer(boxchild3);
             //数字入力案内
             changeHtml(secletinfo4, "相手が設定した重複なしの3桁の数字を推理しよう");
-        }
-    }
-);
-
-//決定ボタン押す＝＞hit&blow判定
-enter3.addEventListener("click",
-    function () {
-        if (inputValueJs.length === digits && limittime3.innerText.includes("Player")) {
+        } else if (inputValueJs.length === digits && limittime3.innerText.includes("Player")) {
             if (p1ans.length === digits && p2ans.length === digits) {
+                //決定ボタン押す＝＞hit&blow判定
                 if (turn) {
                     answer = p2ans;
+                    console.log("p1kaitou p2ans:"+ answer);
                 } else {
                     answer = p1ans;
+                    console.log("p2kaitou p1ans:"+ answer);
                 }
                 let hit = 0;
                 let blow = 0;
@@ -368,6 +353,10 @@ enter3.addEventListener("click",
         }
     }
 );
+
+//===================
+//4.二人対戦画面
+//===================
 //相手のターンボタン押す
 next4.addEventListener('click',
     function () {
@@ -377,7 +366,7 @@ next4.addEventListener('click',
         displayChangePlayer(boxchild3);
         //履歴、プレイヤー名変更
         if (turn) {
-             //リミットのところにプレイヤー名入れる
+            //リミットのところにプレイヤー名入れる
             changeHtml(limittime3, "Player2");
             p2log.forEach((log) => {
                 numlog3.prepend(log);
@@ -394,4 +383,182 @@ next4.addEventListener('click',
         //相手のターンボタン非表示
         displayChangeBlank(next4);
     }
+
+//===================
+//4.二人対戦画面
+//===================
+// //決定ボタン押す＝＞player1数字決定、player2へ画面遷移
+// enter3.addEventListener("click",
+//     function () {
+//         //決定ボタン押す＝＞player1数字決定、player2へ画面遷移
+//         if (inputValueJs.length === digits && limittime3.innerText === "Player1" && p1ans.length !== digits) {
+//             //p1Answerに回答入れる
+//             for (let i = 0; i < digits; i++) {
+//                 p1ans.push(Number(inputValueJs.shift()));
+//             }
+//             console.log(`p1ans:${p1ans}`);
+//             //入力値表示リセット
+//             changeHtml(inputValue3, "");
+//             //リミットのところにプレイヤー名入れる
+//             changeHtml(limittime3, `Player2`);
+//             //p1p2反転
+//             displayChangePlayer(boxchild3);
+//         } else if (inputValueJs.length === digits && limittime3.innerText === "Player2" && p2ans.length !== digits) {
+//             //決定ボタン押す＝＞player2数字決定、p1からゲームスタート
+//             //p2Answerに回答入れる
+//             for (let i = 0; i < digits; i++) {
+//                 p2ans.push(Number(inputValueJs.shift()));
+//             }
+//             console.log(`p2ans:${p2ans}`);
+//             //入力値表示リセット
+//             changeHtml(inputValue3, "");
+//             //リミットのところにプレイヤー名入れる
+//             changeHtml(limittime3, `Player1`);
+//             //p1p2反転
+//             displayChangePlayer(boxchild3);
+//             //数字入力案内
+//             changeHtml(secletinfo4, "相手が設定した重複なしの3桁の数字を推理しよう");
+//         } else if (inputValueJs.length === digits && limittime3.innerText.includes("Player")) {
+//             if (p1ans.length === digits && p2ans.length === digits) {
+//                 //決定ボタン押す＝＞hit&blow判定
+//                 if (turn) {
+//                     answer = p2ans;
+//                 } else {
+//                     answer = p1ans;
+//                 }
+//                 let hit = 0;
+//                 let blow = 0;
+//                 //hitblow判定
+//                 for (let i = 0; i < digits; i++) {
+//                     const val = inputValueJs[i];
+//                     if (answer[i] === val) {
+//                         hit++;
+//                     } else if (answer.indexOf(val) !== -1) {
+//                         blow++;
+//                     }
+//                 }
+//                 //履歴つくる
+//                 const li = document.createElement('li');
+//                 li.className = 'log3';
+//                 const p = document.createElement('p');
+//                 p.innerText = inputValueJs.join("");
+//                 li.appendChild(p);
+//                 const spanhit = document.createElement('span');
+//                 spanhit.className = 'hit3';
+//                 spanhit.innerText = `${hit}Hit`;
+//                 li.appendChild(spanhit);
+//                 const spanblow = document.createElement('span');
+//                 spanblow.className = 'blow3';
+//                 spanblow.innerText = `${blow}Blow`
+//                 li.appendChild(spanblow);
+//                 //履歴追加
+//                 numlog3.prepend(li);
+//                 if (turn) {
+//                     p1log.push(li);
+//                     console.log(`p1log:${p1log}`);
+//                 } else {
+//                     p2log.push(li);
+//                     console.log(`p2log:${p2log}`);
+//                 }
+
+//                 //入力数字初期化
+//                 inputValueJs = [];
+//                 changeHtml(inputValue3, "");
+//                 //結果表示
+//                 if (hit === digits) {
+//                     const li = document.createElement('li');
+//                     li.innerHTML = "<h2>You WIN</h2>";
+//                     numlog3.prepend(li);
+//                 } else {
+//                     //相手のターンボタン表示
+//                     displayChangeBlank(next4);
+//                 }
+//             }
+//         }
+//     }
+// );
+
+// //決定ボタン押す＝＞player2数字決定、p1からゲームスタート
+// enter3.addEventListener("click",
+//     function () {
+//         if (inputValueJs.length === digits && limittime3.innerText === "Player2" && p2ans.length !== digits) {
+//             //p2Answerに回答入れる
+//             for (let i = 0; i < digits; i++) {
+//                 p2ans.push(Number(inputValueJs.shift()));
+//             }
+//             console.log(`p2ans:${p2ans}`);
+//             //入力値表示リセット
+//             changeHtml(inputValue3, "");
+//             //リミットのところにプレイヤー名入れる
+//             changeHtml(limittime3, `Player1`);
+//             //p1p2反転
+//             displayChangePlayer(boxchild3);
+//             //数字入力案内
+//             changeHtml(secletinfo4, "相手が設定した重複なしの3桁の数字を推理しよう");
+//         }
+//     }
+// );
+
+// //決定ボタン押す＝＞hit&blow判定
+// enter3.addEventListener("click",
+//     function () {
+//         if (inputValueJs.length === digits && limittime3.innerText.includes("Player")) {
+//             if (p1ans.length === digits && p2ans.length === digits) {
+//                 if (turn) {
+//                     answer = p2ans;
+//                 } else {
+//                     answer = p1ans;
+//                 }
+//                 let hit = 0;
+//                 let blow = 0;
+//                 //hitblow判定
+//                 for (let i = 0; i < digits; i++) {
+//                     const val = inputValueJs[i];
+//                     if (answer[i] === val) {
+//                         hit++;
+//                     } else if (answer.indexOf(val) !== -1) {
+//                         blow++;
+//                     }
+//                 }
+//                 //履歴つくる
+//                 const li = document.createElement('li');
+//                 li.className = 'log3';
+//                 const p = document.createElement('p');
+//                 p.innerText = inputValueJs.join("");
+//                 li.appendChild(p);
+//                 const spanhit = document.createElement('span');
+//                 spanhit.className = 'hit3';
+//                 spanhit.innerText = `${hit}Hit`;
+//                 li.appendChild(spanhit);
+//                 const spanblow = document.createElement('span');
+//                 spanblow.className = 'blow3';
+//                 spanblow.innerText = `${blow}Blow`
+//                 li.appendChild(spanblow);
+//                 //履歴追加
+//                 numlog3.prepend(li);
+//                 if (turn) {
+//                     p1log.push(li);
+//                     console.log(`p1log:${p1log}`);
+//                 } else {
+//                     p2log.push(li);
+//                     console.log(`p2log:${p2log}`);
+//                 }
+
+//                 //入力数字初期化
+//                 inputValueJs = [];
+//                 changeHtml(inputValue3, "");
+//                 //結果表示
+//                 if (hit === digits) {
+//                     const li = document.createElement('li');
+//                     li.innerHTML = "<h2>You WIN</h2>";
+//                     numlog3.prepend(li);
+//                 } else {
+//                     //相手のターンボタン表示
+//                     displayChangeBlank(next4);
+//                 }
+//             }
+//         }
+//     }
+// );
+
 );
